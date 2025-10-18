@@ -1,12 +1,11 @@
-import "./globals.css";
-import type { Metadata } from "next";
 import { ThirdwebProvider } from "thirdweb/react";
+import { createThirdwebClient } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
+import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "SmartFlood Web3",
-  description: "Blockchain Flood Fund Management",
-};
+const client = createThirdwebClient({
+  clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID!,
+});
 
 export default function RootLayout({
   children,
@@ -16,12 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThirdwebProvider
-          activeChain={sepolia}
-          clientId={process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID!}
-        >
-          {children}
-        </ThirdwebProvider>
+        {/* ✅ New API: wrap with provider + manually pass client and chain */}
+        <ThirdwebProvider>{children}</ThirdwebProvider>
       </body>
     </html>
   );
