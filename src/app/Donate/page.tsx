@@ -1,18 +1,19 @@
 "use client";
 
-import { prepareContractCall, toWei } from "thirdweb";
-import { useSendTransaction } from "thirdweb/react";
-import { getContract } from "thirdweb";
+import { useState } from "react";
+import {
+  prepareContractCall,
+  toWei,
+  getContract,
+  sendTransaction,
+} from "thirdweb";
+import { useActiveAccount } from "thirdweb/react";
 import { sepolia } from "thirdweb/chains";
 import { client } from "@/app/lib/thirdwebClient";
 
 export default function DonateButton({ fundId }: { fundId: number }) {
-  const {
-    mutate: sendTransaction,
-    isLoading,
-    isSuccess,
-    error,
-  } = useSendTransaction();
+  const account = useActiveAccount();
+  const [isLoading, setIsLoading] = useState(false);
 
   const contract = getContract({
     client,
@@ -21,22 +22,29 @@ export default function DonateButton({ fundId }: { fundId: number }) {
   });
 
   const handleDonate = async () => {
+    if (!account) return alert("Please connect your wallet first!");
+
     try {
-      // Example: donating 0.01 ETH
+      setIsLoading(true);
+
       const valueInEth = "0.01";
 
       const transaction = prepareContractCall({
         contract,
         method: "function donateToFloodFund(uint256 _id) payable",
         params: [fundId],
-        value: toWei(valueInEth), // 👈 sends ETH with the transaction
+        value: toWei(valueInEth),
       });
 
-      await sendTransaction(transaction);
-      alert("Transaction sent!");
+      // ✅ sendTransaction now needs { transaction, account }
+      await sendTransaction({ transaction, account });
+
+      alert("✅ Donation successful! Check Sepolia explorer.");
     } catch (err) {
       console.error("Donation failed:", err);
-      alert("Transaction failed: " + (err as Error).message);
+      alert("❌ Transaction failed: " + (err as Error).message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -44,7 +52,7 @@ export default function DonateButton({ fundId }: { fundId: number }) {
     <button
       onClick={handleDonate}
       disabled={isLoading}
-      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
     >
       {isLoading ? "Processing..." : "Donate 0.01 ETH"}
     </button>
