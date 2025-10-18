@@ -25,8 +25,8 @@ export default function FundsPage() {
     deadline: bigint;
     amountCollected: bigint;
     image: string;
-    donators: string[];
-    donations: bigint[];
+    donators: readonly string[];
+    donations: readonly bigint[];
   }
 
   const contract = getContract({

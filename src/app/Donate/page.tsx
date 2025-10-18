@@ -32,7 +32,7 @@ export default function DonateButton({ fundId }: { fundId: number }) {
       const transaction = prepareContractCall({
         contract,
         method: "function donateToFloodFund(uint256 _id) payable",
-        params: [fundId],
+        params: [BigInt(fundId)], // 👈 convert to BigInt
         value: toWei(valueInEth),
       });
 
