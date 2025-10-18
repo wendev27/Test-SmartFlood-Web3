@@ -2,6 +2,7 @@
 
 import "./globals.css";
 import { ThirdwebProvider } from "thirdweb/react";
+
 import { client } from "./lib/thirdwebClient";
 
 export default function RootLayout({
@@ -12,8 +13,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* ✅ Provide Thirdweb context globally */}
-        <ThirdwebProvider client={client}>{children}</ThirdwebProvider>
+        {/* ✅ Correct way for Thirdweb v5 */}
+        <ThirdwebProvider>{children}</ThirdwebProvider>
       </body>
     </html>
   );

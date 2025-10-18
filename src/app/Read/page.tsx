@@ -12,7 +12,6 @@ import DonateModal from "../Donate/page";
 
 import { useState } from "react";
 import { prepareContractCall, sendTransaction } from "thirdweb";
-import { contract } from "@/app/lib/contract";
 
 export default function FundsPage() {
   const account = useActiveAccount();

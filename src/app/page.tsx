@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ConnectButton, useActiveAccount } from "thirdweb/react";
-import { sepolia } from "thirdweb/chains";
 import { prepareContractCall, sendTransaction, getContract } from "thirdweb";
+
 import { client } from "@/app/lib/thirdwebClient";
+import { sepolia } from "thirdweb/chains";
 
 export default function HomePage() {
   const account = useActiveAccount();
