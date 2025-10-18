@@ -1,11 +1,7 @@
-import { ThirdwebProvider } from "thirdweb/react";
-import { createThirdwebClient } from "thirdweb";
-import { sepolia } from "thirdweb/chains";
-import "./globals.css";
+"use client";
 
-const client = createThirdwebClient({
-  clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID!,
-});
+import "./globals.css";
+import { ThirdwebProvider } from "thirdweb/react";
 
 export default function RootLayout({
   children,
@@ -15,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* ✅ New API: wrap with provider + manually pass client and chain */}
+        {/* ✅ Correct modern Thirdweb setup */}
         <ThirdwebProvider>{children}</ThirdwebProvider>
       </body>
     </html>
