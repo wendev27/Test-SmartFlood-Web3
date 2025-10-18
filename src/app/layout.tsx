@@ -1,9 +1,18 @@
 "use client";
 
+import React from "react";
+import {
+  ThirdwebProvider,
+  AccountProvider,
+  ChainProvider,
+} from "thirdweb/react";
+import { createThirdwebClient } from "thirdweb";
+import { sepolia } from "thirdweb/chains";
 import "./globals.css";
-import { ThirdwebProvider } from "thirdweb/react";
 
-import { client } from "./lib/thirdwebClient";
+const client = createThirdwebClient({
+  clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID!,
+});
 
 export default function RootLayout({
   children,
@@ -13,8 +22,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* ✅ Correct way for Thirdweb v5 */}
-        <ThirdwebProvider>{children}</ThirdwebProvider>
+        <ThirdwebProvider>
+          {/* ✅ Define which chain your app is on */}
+          <ChainProvider chain={sepolia}>
+            {/* ✅ Provide wallet/account context */}
+            <AccountProvider
+              client={client}
+              address={process.env.NEXT_PUBLIC_CONTRACT_ADDRESS!}
+            >
+              {children}
+            </AccountProvider>
+          </ChainProvider>
+        </ThirdwebProvider>
       </body>
     </html>
   );
