@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SmartFlood V1 – Web3 Donation Prototype
 
-## Getting Started
+## Overview
 
-First, run the development server:
+SmartFlood V1 – Web3 Donation Prototype is one of the earliest experimental versions of our SmartFlood capstone project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This repository was created while I was learning **Next.js**, **Web3 development**, and blockchain wallet integration. The primary goal was to explore how blockchain technology could support a transparent donation system for disaster relief.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Although this approach was later removed from the final capstone based on our panelists' recommendations, this repository has been preserved to document my learning journey and the evolution of the SmartFlood project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Purpose
 
-## Learn More
+The objective of this prototype was to:
 
-To learn more about Next.js, take a look at the following resources:
+* Explore Web3 development using a modern frontend framework.
+* Understand cryptocurrency wallet connectivity.
+* Experiment with blockchain-based donation workflows.
+* Learn how decentralized technologies could be applied to disaster management systems.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This repository served as a research and experimentation environment rather than a production-ready implementation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Next.js
+* React
+* TypeScript
+* Web3 Libraries (prototype implementation)
+* JavaScript / TypeScript
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Features Explored
+
+* Prototype donation interface
+* Wallet connection experiments
+* Blockchain donation concept
+* Early SmartFlood user interface
+
+---
+
+## Project Evolution
+
+This repository represents the **first experimental stage** of SmartFlood.
+
+The project later evolved into:
+
+* SmartFlood V2
+* SmartFlood V3
+* SmartFlood V4
+
+Each version introduced improvements in architecture, user experience, backend design, AI integration, and overall system organization.
+
+---
+
+## Lessons Learned
+
+Working on this project helped me understand:
+
+* Fundamentals of Next.js
+* React component development
+* Blockchain application concepts
+* Project structure for larger applications
+* The importance of validating technical ideas with stakeholders
+
+One important lesson from this prototype was that not every technically interesting feature belongs in the final product. During our capstone evaluation, the Web3 donation feature was removed after discussions with the panel, allowing us to focus on features that better aligned with the project's objectives.
+
+---
+
+## Current Status
+
+This repository is archived as a historical prototype and is no longer actively developed.
+
+It is maintained to document the evolution of SmartFlood and my growth as a software developer.
